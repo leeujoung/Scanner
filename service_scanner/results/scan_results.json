@@ -1,0 +1,12 @@
+[
+    {
+        "port": 21,
+        "status": "open",
+        "protocol": "TCP/IP",
+        "service": "FTP",
+        "method": "banner grabbing",
+        "banner": "220 (vsFTPd 3.0.3)",
+        "error_message": "",
+        "risk_vulnerabilities": "Anonymous access, Clear text transmission"
+    }
+]

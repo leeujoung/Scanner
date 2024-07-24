@@ -1,0 +1,2 @@
+port,status,protocol,service,method,banner,error_message,risk_vulnerabilities
+21,closed,TCP/IP,FTP,banner grabbing,,Port is closed,"Anonymous access, Clear text transmission"
