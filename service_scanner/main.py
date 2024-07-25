@@ -1,7 +1,8 @@
 import json
 import csv
 import os
-from scanners.scan_functions import scan_ftp
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from scanners.scan_functions import scan_ftp, scan_http, scan_mysql, scan_netbios_udp, scan_netbios_tcp
 
 def main():
     host = input("Enter the IP address of the server to scan: ")
@@ -9,16 +10,29 @@ def main():
     # 스캔할 포트와 그에 대응하는 스캔 함수 매핑
     ports = {
         21: scan_ftp,
+        80: scan_http,
+        3360: scan_mysql,
+        137: scan_netbios_udp,
+        139: scan_netbios_tcp
+
     }
     
     results = []
     
-    # 각 포트에 대해 스캔 수행
-    for port, scan_function in ports.items():
-        print(f"Scanning port {port}...")
-        result = scan_function(host, port)
-        results.append(result)
-    
+#    각 포트에 대해 스캔 수행
+#    for port, scan_function in ports.items():
+#        print(f"Scanning port {port}...")
+#        result = scan_function(host, port)
+#        results.append(result)
+
+    # 각 포트에 대해 멀티 스레드 스캔 수행
+    with ThreadPoolExecutor(max_workers=20) as executor:
+        futures = [executor.submit(scan_function, host, port) for port, scan_function in ports.items()]
+
+        for future in as_completed(futures):
+            result = future.result()
+            results.append(result)
+
     # results 폴더가 존재하지 않으면 생성
     if not os.path.exists('results'):
         os.makedirs('results')
