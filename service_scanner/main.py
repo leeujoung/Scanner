@@ -2,7 +2,7 @@ import json
 import csv
 import os
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from scanners.scan_functions import scan_ftp, scan_http, scan_mysql, scan_netbios_udp, scan_netbios_tcp
+from scanners.scan_functions import scan_ftp, scan_http, scan_mysql, scan_netbios_udp, scan_netbios_tcp, scan_telnet
 
 def main():
     host = input("Enter the IP address of the server to scan: ")
@@ -13,7 +13,8 @@ def main():
         80: scan_http,
         3360: scan_mysql,
         137: scan_netbios_udp,
-        139: scan_netbios_tcp
+        139: scan_netbios_tcp,
+        23 : scan_telnet
 
     }
     

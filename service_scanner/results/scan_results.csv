@@ -1,2 +1,7 @@
 port,status,protocol,service,method,banner,error_message,risk_vulnerabilities
+80,open,TCP/IP,HTTP,banner grabbing,HTTP/1.1 200 OK,,Potential vulnerabilities such as outdated software
 21,closed,TCP/IP,FTP,banner grabbing,,Port is closed,"Anonymous access, Clear text transmission"
+23,closed,TCP/IP,Telnet,banner grabbing,,Port is closed or other socket error: [WinError 10061] 대상 컴퓨터에서 연결을 거부했으므로 연결하지 못했습니다,"Unencrypted communication, Potential for unauthorized access"
+139,closed,TCP/IP,netBIOS,banner grabbing,,Port is closed,
+3360,closed,TCP/IP,MySQL,banner grabbing,,Port is closed or other socket error: [WinError 10061] 대상 컴퓨터에서 연결을 거부했으므로 연결하지 못했습니다,"Anonymous access, Clear text transmission"
+137,open,TCP/IP,netBIOS,banner grabbing,,timed out,

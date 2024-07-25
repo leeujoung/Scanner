@@ -1,12 +1,62 @@
 [
     {
-        "port": 21,
+        "port": 80,
         "status": "open",
+        "protocol": "TCP/IP",
+        "service": "HTTP",
+        "method": "banner grabbing",
+        "banner": "HTTP/1.1 200 OK",
+        "error_message": "",
+        "risk_vulnerabilities": "Potential vulnerabilities such as outdated software"
+    },
+    {
+        "port": 21,
+        "status": "closed",
         "protocol": "TCP/IP",
         "service": "FTP",
         "method": "banner grabbing",
-        "banner": "220 (vsFTPd 3.0.3)",
-        "error_message": "",
+        "banner": "",
+        "error_message": "Port is closed",
         "risk_vulnerabilities": "Anonymous access, Clear text transmission"
+    },
+    {
+        "port": 23,
+        "status": "closed",
+        "protocol": "TCP/IP",
+        "service": "Telnet",
+        "method": "banner grabbing",
+        "banner": "",
+        "error_message": "Port is closed or other socket error: [WinError 10061] \ub300\uc0c1 \ucef4\ud4e8\ud130\uc5d0\uc11c \uc5f0\uacb0\uc744 \uac70\ubd80\ud588\uc73c\ubbc0\ub85c \uc5f0\uacb0\ud558\uc9c0 \ubabb\ud588\uc2b5\ub2c8\ub2e4",
+        "risk_vulnerabilities": "Unencrypted communication, Potential for unauthorized access"
+    },
+    {
+        "port": 139,
+        "status": "closed",
+        "protocol": "TCP/IP",
+        "service": "netBIOS",
+        "method": "banner grabbing",
+        "banner": "",
+        "error_message": "Port is closed",
+        "risk_vulnerabilities": ""
+    },
+    {
+        "port": 3360,
+        "status": "closed",
+        "protocol": "TCP/IP",
+        "service": "MySQL",
+        "method": "banner grabbing",
+        "banner": "",
+        "error_message": "Port is closed or other socket error: [WinError 10061] \ub300\uc0c1 \ucef4\ud4e8\ud130\uc5d0\uc11c \uc5f0\uacb0\uc744 \uac70\ubd80\ud588\uc73c\ubbc0\ub85c \uc5f0\uacb0\ud558\uc9c0 \ubabb\ud588\uc2b5\ub2c8\ub2e4",
+        "risk_vulnerabilities": "Anonymous access, Clear text transmission"
+    },
+    {
+        "port": 137,
+        "status": "open",
+        "protocol": "TCP/IP",
+        "service": "netBIOS",
+        "method": "banner grabbing",
+        "banner": "",
+        "error_message": "timed out",
+        "risk_vulnerabilities": ""
     }
 ]
