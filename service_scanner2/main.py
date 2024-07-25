@@ -57,7 +57,7 @@ def main():
         result_queue = Queue()
         threads = []
 
-        for port in range(1, 4000):
+        for port in range(1, 65335):
             scan_module_name = port_mappings.get(str(port), port_mappings.get("default"))
             thread = threading.Thread(target=scan_port, args=(host, port, scan_module_name, result_queue))
             threads.append(thread)
