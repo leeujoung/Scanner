@@ -1,0 +1,9 @@
+{
+    "21": "scanners.scan_ftp",
+    "23": "scanners.scan_telnet",
+    "80": "scanners.scan_http",
+    "443": "scanners.scan_https",
+    "3306": "scanners.scan_mysql",
+    "default": "generic_scan_module"
+}
+
