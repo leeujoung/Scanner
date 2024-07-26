@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Scanner</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/scanner.css') }}">
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <script src="{{ url_for('static', filename='js/scanner.js') }}"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Service Scanner</h1>
+        <form method="post">
+            <input type="text" id="ip" name="ip" placeholder="Enter IP address" required>
+            <button type="submit">SEARCH</button>
+        </form>
+
+        <p id="status"></p>
+        <div class="result-header">
+            <h2>Result:</h2>
+            <p id="target-ip">Target IP:</p> <!-- Target IP 표시 요소 -->
+            <p id="open-ports"></p> <!-- 열린 포트를 표시하는 요소 -->
+            
+            <!-- 파일 다운로드 -->
+            <div id="download-buttons" style="display: none;">
+                <button id="download-pdf">Download PDF</button>
+                <button id="download-json">Download JSON</button>
+            </div>
+
+            <table id="results">
+                <thead>
+                    <tr>
+                        <th>Port Number</th>
+                        <th>Status</th>
+                        <th>Service</th>
+                        <th>Banner</th>
+                        <th>Error Message</th> <!-- 에러 메시지를 표시하는 열 -->
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+
+        <div class="footer"></div>
+    </div>
+</body>
+</html>
